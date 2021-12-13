@@ -100,7 +100,6 @@ def main(sc):
     rddJ = rddI.sortBy(lambda x: x[1][:15])
     header = sc.parallelize([(-1, 'year,date,median,low,high')]).coalesce(1)
     rddJ = (header + rddJ).coalesce(10).cache()
-    OUTPUT_PREFIX = '/hw4_output'
     filename = ['big_box_grocers',
             'convenience_stores',
             'drinking_places',
